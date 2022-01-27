@@ -3,7 +3,8 @@ var router = require('express').Router();
 router.use('/', require('./users'));
 router.use('/profiles', require('./profiles'));
 router.use('/articles', require('./articles'));
-router.use('/affairs', require('./affairs'));
+router.use('/affairs', require('./affairs.routes'));
+router.use('/affairs_fields', require('./affairs_fields.routes'));
 router.use('/turorial', require('./turorial.routes'));
 router.use('/tags', require('./tags'));
 

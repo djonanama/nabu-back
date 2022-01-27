@@ -13,10 +13,15 @@ router.get('/user', auth.required, function(req, res, next){
 });
 
 router.put('/user', auth.required, function(req, res, next){
-  User.findById(req.payload.id).then(function(user){
+
+  User.findById(req.payload.id).then((user)=>{
+ 
     if(!user){ return res.sendStatus(401); }
 
     // only update fields that were actually passed...
+
+    
+
     if(typeof req.body.user.username !== 'undefined'){
       user.username = req.body.user.username;
     }
@@ -57,6 +62,8 @@ router.post('/users/login', function(req, res, next){
     } else {
       return res.status(422).json(info);
     }
+
+ 
   })(req, res, next);
 });
 
@@ -68,8 +75,12 @@ router.post('/users', function(req, res, next){
   user.setPassword(req.body.user.password);
 
   user.save().then(function(){
+    console.log(user)
     return res.json({user: user.toAuthJSON()});
-  }).catch(next);
+  }).catch((e)=>{
+    console.log(e)
+    next(e)
+  });
 });
 
 module.exports = router;

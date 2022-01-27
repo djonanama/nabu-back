@@ -1,7 +1,7 @@
 {
-  "name": "conduit-node",
+  "name": "nabu-node",
   "version": "1.0.0",
-  "description": "conduit on node",
+  "description": "nabu on node",
   "main": "app.js",
   "scripts": {
     "mongo:start": "docker run --name realworld-mongo -p 27017:27017 mongo & sleep 5",
@@ -25,6 +25,7 @@
     "express-jwt": "3.3.0",
     "express-session": "1.13.0",
     "jsonwebtoken": "7.1.9",
+    "marked": "^0.7.0",
     "method-override": "2.3.5",
     "methods": "1.1.2",
     "mongoose": "4.4.10",
@@ -37,7 +38,8 @@
     "underscore": "1.8.3",
     "pg": "^8.7.1",
     "pg-hstore": "^2.3.4",
-    "sequelize": "6.6.5"
+    "sequelize": "6.6.5",
+    "clickhouse": "^2.4.2"
   },
   "devDependencies": {
     "newman": "^3.8.2",

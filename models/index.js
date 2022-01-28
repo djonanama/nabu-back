@@ -30,7 +30,11 @@ db.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
 db.affairs_fields = require("./affairs_fields.model.js")();
 
 // `mongodb://${mg.USER}:${mg.PASSWORD}@${mg.HOST}:${mg.PORT}/${mg.DB}`
-db.mongoose = mongoose.connect('mongodb://localhost:4017/nabu_app');
+
+mongodb://localhost:4017/nabu_app?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false
+
+db.mongoose = mongoose.connect(`mongodb://${mg.HOST}:${mg.PORT}/${mg.DB}`)
+// db.mongoose = mongoose.connect('mongodb://localhost:4017/nabu_app');
 
 if(!isProduction){
   db.mongoose.set('debug', true);

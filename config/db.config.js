@@ -1,7 +1,7 @@
 module.exports = {
   mg: {
-    HOST: "localhost",
-    PORT: 4017,
+    HOST: process.env.MONGO_HOST || "localhost",
+    PORT: process.env.MONGO_PORT || 4017,
     USER: "root",
     PASSWORD: "root",
     DB: "nabu_app",
@@ -21,8 +21,8 @@ module.exports = {
     }
   },
   ch:{
-    url: 'http://localhost',
-    port: 4123,
+    url: process.env.CH_URL || 'http://localhost',
+    port: process.env.CH_PORT || 4123,
     debug: false,
     basicAuth: {
       username: 'nabu',
